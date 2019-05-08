@@ -1,0 +1,80 @@
+<section style="border: 1px solid blue">
+		<h2>Entendendo estruturas de variáveis</h2>
+		<ul>
+			<li>Constantes</li>
+			<li>
+				Tipos 
+				<ul>
+					<li>Primitivos</li>
+					<li>Objetos</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<div>
+			<input name="nome" placeholder="Digite o nome do produto"/>
+		</div>
+		
+		<div>
+			<input name="marca" placeholder="Digite a marca do produto"/>
+		</div>
+		
+		<div>
+			<input name="quantidade" placeholder="Digite a quantidade do produto"/>
+		</div>
+		
+		<div>
+			<button onclick="salvar()">Salvar</button>
+		</div>
+</section>
+<section style="border: 1px dashed red;">
+	<h2>Entendendo estruturas de decisão</h2>
+	<ul>
+		<li>
+			If
+		</li>
+		<li>
+			Switch
+		</li>
+	</ul>
+
+	<div>
+		<h3>
+			Pizza Calabresa
+		</h3>
+		<p>Valor: R$ 25,00</p>
+		<div>
+			<input name="saldo" placeholder="Digite seu saldo disponível"/>
+			<button style="padding: 3px; color: white; background-color: green;" onclick="comprar()"> Comprar</button>
+		</div>
+	</div>
+</section>
+
+
+<script>
+
+	function salvar(){
+		var produto = {};
+
+		produto.nome = document.querySelector("[name='nome']").value;
+		produto.marca = document.querySelector("[name='marca']").value;
+		produto.quantidade = document.querySelector("[name='quantidade']").value;
+		console.log(produto)
+	}
+
+	function comprar() {
+		var saldo = document.querySelector("[name='saldo']").value;
+
+		if(parseInt(saldo) >= 25) {
+			console.log("Seu pedido foi efetuado.")
+			var troco = parseInt(saldo) - 25;
+
+			console.log("Seu troco é de: " + troco);
+		} else {
+			console.log("Infelizmente, seu saldo é insuficiente.")
+			var quantoFalta = 25 - parseInt(saldo);
+			console.log("Faltam " + quantoFalta + " reais.");
+		}
+	}
+	
+</script>
