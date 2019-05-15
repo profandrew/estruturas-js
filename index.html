@@ -61,6 +61,22 @@
 	</div>
 </section>
 
+<section style="border: 1px dashed rgb(172, 114, 20); padding: 1em;">
+	Mega Sena de verdade
+
+	<button onclick="jogar()">Jogar</button>
+
+	<div style="display: flex;">
+		<span id="s1" style="width: 50px; height: 50px; border-radius: 50%; background: seagreen; margin: 3px; color: white; display: flex; justify-content: center; align-items: center; font-size: 30px;">0</span>
+		<span id="s2" style="width: 50px; height: 50px; border-radius: 50%; background: seagreen; margin: 3px; color: white; display: flex; justify-content: center; align-items: center; font-size: 30px;">0</span>
+		<span id="s3" style="width: 50px; height: 50px; border-radius: 50%; background: seagreen; margin: 3px; color: white; display: flex; justify-content: center; align-items: center; font-size: 30px;">0</span>
+		<span id="s4" style="width: 50px; height: 50px; border-radius: 50%; background: seagreen; margin: 3px; color: white; display: flex; justify-content: center; align-items: center; font-size: 30px;">0</span>
+		<span id="s5" style="width: 50px; height: 50px; border-radius: 50%; background: seagreen; margin: 3px; color: white; display: flex; justify-content: center; align-items: center; font-size: 30px;">0</span>
+		<span id="s6" style="width: 50px; height: 50px; border-radius: 50%; background: seagreen; margin: 3px; color: white; display: flex; justify-content: center; align-items: center; font-size: 30px;">0</span>
+	</div>
+
+</section>
+
 
 <script>
 
@@ -105,6 +121,14 @@
 				console.log("Alarme, ")
 			case '1':
 				console.log("Ar condicionado")
+		}
+	}
+
+	function jogar() {
+		for(var i = 1; i <= 6; i++){
+			var elementoSpan = document.querySelector("#s" + i)
+			var numeroAleatorio = parseInt(Math.random() * 60) + 1;
+			elementoSpan.innerHTML = numeroAleatorio
 		}
 	}
 	
