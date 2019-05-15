@@ -10,7 +10,6 @@
 				</ul>
 			</li>
 		</ul>
-		
 		<div>
 			<input name="nome" placeholder="Digite o nome do produto"/>
 		</div>
@@ -27,7 +26,7 @@
 			<button onclick="salvar()">Salvar</button>
 		</div>
 </section>
-<section style="border: 1px dashed red;">
+<section style="border: 1px dashed red; height: 80vh;">
 	<h2>Entendendo estruturas de decisão</h2>
 	<ul>
 		<li>
@@ -48,6 +47,18 @@
 			<button style="padding: 3px; color: white; background-color: green;" onclick="comprar()"> Comprar</button>
 		</div>
 	</div>
+	<hr/>
+	<div>
+		<h3>
+			Selecione a opção de adicionais
+		</h3>
+		<select onchange="mudar()" name='opcoes'>
+			<option value='1'>1 - Ar Condicionado</option>
+			<option value='2'>2 - Ar Condicionado, Alarme</option>
+			<option value='3'>3 - Ar Condicionado, Alarme, Som</option>
+			<option value='4'>4 - Ar Condicionado, Alarme, Som, Teto Solar</option>
+		</select>
+	</div>
 </section>
 
 
@@ -60,20 +71,40 @@
 		produto.marca = document.querySelector("[name='marca']").value;
 		produto.quantidade = document.querySelector("[name='quantidade']").value;
 		console.log(produto)
+
+		document.querySelector("[name='nome']").value = ''
+		document.querySelector("[name='marca']").value = ''
+		document.querySelector("[name='quantidade']").value = ''
 	}
 
 	function comprar() {
 		var saldo = document.querySelector("[name='saldo']").value;
+		var saldoConvertido = parseInt(saldo);
 
-		if(parseInt(saldo) >= 25) {
+		if(saldoConvertido >= 25) {
 			console.log("Seu pedido foi efetuado.")
-			var troco = parseInt(saldo) - 25;
+			var troco = saldoConvertido - 25;
 
 			console.log("Seu troco é de: " + troco);
 		} else {
 			console.log("Infelizmente, seu saldo é insuficiente.")
-			var quantoFalta = 25 - parseInt(saldo);
+			var quantoFalta = 25 - saldoConvertido;
 			console.log("Faltam " + quantoFalta + " reais.");
+		}
+	}
+
+	function mudar() {
+		var valorSelecionado = document.querySelector("[name='opcoes']").value
+		console.log("Quer: ")
+		switch(valorSelecionado){
+			case '4':
+				console.log("Teto solar, ")
+			case '3':
+				console.log("Som, ")
+			case '2':
+				console.log("Alarme, ")
+			case '1':
+				console.log("Ar condicionado")
 		}
 	}
 	
